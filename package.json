@@ -1,0 +1,17 @@
+{
+  "name": "proyectofinal",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start-dev": "nodemon server.js",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "FG-Projects",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.1",
+    "moment": "^2.29.4"
+  }
+}
