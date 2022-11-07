@@ -2,6 +2,7 @@ const express = require("express");
 const PORT = process.env.PORT || 8080;
 const app = express();
 const apiRoutes = require("./routers/app.routers");
+const envConfig = require("./config")
 
 
 
@@ -14,11 +15,18 @@ app.use(express.urlencoded({ extended: false }));
 app.get("/", (req, res) =>{
     res.json("Bienvenido");
 });
-app.use("/FG-Api", apiRoutes);
+app.use("/api", apiRoutes);
 app.get("*", (req, res) => {
     res.status(404).send("<h1 style='color:red;'> La pagina que busca no existe </h1>")
 });
 
+
+const DATASOURCE_BY_ENV =  {
+    mongo: require("./model/containers/containerMongo"),
+    firebase: require("./model/containers/containerFirebase")
+};
+
+const dataSource = DATASOURCE_BY_ENV[envConfig.DATASOURCE]
 
 
 const connectedServer = app.listen(PORT, () => {

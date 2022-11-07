@@ -1,6 +1,8 @@
-const Container = require("../model/container"); 
-const products = new Container("./model/products.json");
+const ProductsDao = require("../model/containers/containerFirebase")
 const moment = require("moment");
+
+
+const products = new ProductsDao()
 
 const getProducts = (req, res) => {
     const data = products.getAll()
@@ -17,39 +19,39 @@ const getProductsById = (req, res) => {
 }
 
 const addProduct = (req, res) => {
-    const { nombre, descr, precio, picture, stock, timestamp, codigo } = req.body;
-    if (!nombre || !descr || !precio || !picture || !stock || !codigo) {
+    const { name, description, price, thumbnail, stock, code } = req.body;
+    if (!name || !description || !price || !thumbnail || !stock || !code) {
         return res.status(400).json({ succes: false, error: 'Wrong body format' });
     }
     const newProduct = {
-        nombre,
-        descr,
-        precio: +(precio),
-        picture,
+        name,
+        description,
+        price: +(price),
+        thumbnail,
         stock,
         timestamp: moment().format("h:mm a"),
-        codigo,
+        code,
     };
     products.save(newProduct)
     return res.json({ success: true, result: newProduct });
 }
 
-const upProductById = (req, res) => {
-    const { params: { productId }, body: { nombre, descr, precio, picture, stock, timestamp, codigo } } = req;
-    if (!nombre || !descr || !precio || !picture || !stock || !codigo) {
+const updateProductById = (req, res) => {
+    const { params: { productId }, body: { name, description, price, thumbnail, stock, code } } = req;
+    if (!name || !description || !price || !thumbnail || !stock || !code) {
         return res.status(400).json({ success: false, error: 'Wrong body format' });
     };
     const newProduct = {
-        nombre,
-        descr,
-        precio,
-        picture,
+        name,
+        description,
+        price,
+        thumbnail,
         stock,
         timestamp: moment().format("h:mm a"),
-        codigo
+        code
     };
-    const upProduct = products.updateById(+(productId), newProduct)
-    if (upProduct === null) return res.status(404).json({ success: false, error: `Product with id: ${productId} does not exist!` });
+    const updateProduct = products.updateById(+(productId), newProduct)
+    if (updateProduct === null) return res.status(404).json({ success: false, error: `Product with id: ${productId} does not exist!` });
     return res.json({ success: true, result: newProduct });
 }
 
@@ -62,5 +64,5 @@ const deleteProductById = (req, res) => {
 
 
 module.exports = {
-    getProducts, getProductsById, addProduct, upProductById, deleteProductById
+    getProducts, getProductsById, addProduct, updateProductById, deleteProductById
 }

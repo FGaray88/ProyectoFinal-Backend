@@ -4,7 +4,7 @@ const {
   getProducts,
   getProductsById,
   addProduct,
-  upProductById,
+  updateProductById,
   deleteProductById
 } = require("../../controllers/productos.api")
 
@@ -12,7 +12,7 @@ const {
     router.get('/', getProducts);
     router.get("/:id", getProductsById);
     router.post('/', addProduct);
-    router.put('/:productId', upProductById);
+    router.put('/:productId', updateProductById);
     router.delete('/:productId', deleteProductById);
 
 module.exports = router;

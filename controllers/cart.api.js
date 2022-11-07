@@ -1,13 +1,16 @@
-const Container = require("..//model/container"); 
+/* const Container = require("../model/containers/container"); 
 const cart = new Container("./model/cart.json");
-const products = new Container("./model/products.json");
+const products = new Container("./model/products.json"); */
+
+const CartsDao = require("../model/containers/containerFirebase")
+const ProductsDao = require("../model/containers/containerFirebase")
 const moment = require("moment");
 
+const products = new ProductsDao()
+const cart = new CartsDao();
 
-/* const getProductsById = (req, res) => {
 
-} */
-
+// hay que convertir a async el code
 
 const createNewCart = (req, res) => {
     const newCart = {         
