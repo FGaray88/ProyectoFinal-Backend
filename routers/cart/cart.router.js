@@ -1,20 +1,14 @@
 const express = require("express")
+const CartController = require("../../controllers/cart.controller");
+const cartModel = new CartController()
 
-
-const {
-    createNewCart, 
-    deleteCartById, 
-    getProductsInCart, 
-    addProductAtCart, 
-    deleteProductOnCart
-} = require("../../controllers/cart.api")
 
 const router = express.Router();
 
-    router.post("/", createNewCart);
-    router.delete("/:id", deleteCartById);
-    router.get("/:id/productos", getProductsInCart);
-    router.post("/:id/productos", addProductAtCart);
-    router.delete("/:id/productos/:productId", deleteProductOnCart);
+    router.post("/", cartModel.createNewCart);
+    router.delete("/:id", cartModel.deleteCartById);
+    router.get("/:id/productos", cartModel.getProductsInCart);
+    router.post("/:id/productos", cartModel.addProductAtCart); 
+    router.delete("/:id/productos/:productId", cartModel.deleteProductOnCart); // Falla en mongo
 
 module.exports = router;

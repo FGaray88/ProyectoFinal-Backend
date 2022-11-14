@@ -2,14 +2,14 @@ const { Schema } = require("mongoose");
 const MongoContainer = require("../../containers/containerMongo");
 
 
-const collection = "products";
+const collection = "productos";
 const productsSchema = new Schema({
     name: { type: String},
     thumbnail: { type: String},
     price: { type: Number},
     description: { type: String},
     stock: { type: Number},
-    timestamp: { type: Date},
+    timestamp: { type: String},
     code: { type: Number}
 });
 

@@ -4,8 +4,8 @@ const MongoContainer = require("../../containers/containerMongo");
 
 const collection = "carts";
 const cartsSchema = new Schema({
-    timestamp: { type: Date },
-    products: { type: Array }
+    timestamp: { type: String },
+    productos: { type: Array }
 });
 
 class CartsMongoDao extends MongoContainer {

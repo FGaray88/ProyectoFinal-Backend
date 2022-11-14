@@ -1,5 +1,7 @@
 const mongoose = require("mongoose");
-const dbConfig = require("../../db/db.config")
+const { HTTP_STATUS } = require("../../constants/api.constants");
+const dbConfig = require("../../db/db.config");
+const { HttpError } = require("../../utils/api.utils");
 
 
 class MongoContainer {
@@ -34,11 +36,11 @@ class MongoContainer {
         return await newDocument.save();
     }
 
-    async update (id, item){
+    async updateById (id, item){
         const updatedDocument = await this.model.updateOne(
             { _id: id },
             { $set: { ...item } }
-        );    
+        );
         if (!updatedDocument.matchedCount) {
             const message = `Resource with id ${id} does not exist in our records`;
             throw new HttpError(HTTP_STATUS.NOT_FOUND, message);

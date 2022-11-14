@@ -1,38 +1,20 @@
-const express = require("express");
+const app = require("./app");
+const envConfig = require("./config");
 const PORT = process.env.PORT || 8080;
-const app = express();
-const apiRoutes = require("./routers/app.routers");
-const envConfig = require("./config")
 
-
-
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-/* app.use(express.static("public")); */
-
-
-
-app.get("/", (req, res) =>{
-    res.json("Bienvenido");
-});
-app.use("/api", apiRoutes);
-app.get("*", (req, res) => {
-    res.status(404).send("<h1 style='color:red;'> La pagina que busca no existe </h1>")
-});
-
-
-const DATASOURCE_BY_ENV =  {
-    mongo: require("./model/containers/containerMongo"),
-    firebase: require("./model/containers/containerFirebase")
+const DATASOURCE_BY_ENV = {
+    mongo: require('./model/containers/containerMongo'),
+    firebase: require('./model/containers/containerFirebase'),
+    file: require('./model/containers/containerMemory')
 };
 
 const dataSource = DATASOURCE_BY_ENV[envConfig.DATASOURCE]
 
 
-const connectedServer = app.listen(PORT, () => {
-    console.log(`servidor funcionando en puerto ${PORT}`);
-});
-
-connectedServer.on("error", (error) => {
-    console.log(error.message);
+app.listen(PORT, () => {
+    console.log(dataSource.connect)
+    dataSource.connect().then(() => {
+        console.log(`Server is up and running on port: `, PORT);
+        console.log("Connected to " + envConfig.DATASOURCE);
+    })
 });

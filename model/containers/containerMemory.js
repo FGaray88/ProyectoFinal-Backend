@@ -1,8 +1,16 @@
 const fs = require("fs")
+const { HTTP_STATUS } = require("../../constants/api.constants");
+const { HttpError } = require("../../utils/api.utils");
 
 class Container {
     constructor(archivo) {
         this.archivo = archivo
+    }
+    
+    static async connect() {
+        return {
+            success: true,
+        }
     }
 
     save(object) {
@@ -21,19 +29,22 @@ class Container {
 
     getById(Number) {
         const data = leerArchivo(this.archivo)
-        const found = data.find(p => p.id === Number);
+        const found = data.find(p => p.id === +(Number));
         if(found === undefined){
-            return null;
+            const message = `this resource does not exist in our records`;
+            throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
         }else {
-            const filtro = data.filter(product => product.id ===Number);
-            return filtro;
+            return found;
         }
     }
 
     updateById(number, product) {
         const data = leerArchivo(this.archivo);
         const productIndex = data.findIndex((product) => product.id === +(number));
-        if (productIndex < 0) return null;
+        if (productIndex < 0){
+            const message = `this resource does not exist in our records`;
+            throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
+        }
         const updatedProduct = {
             ...product,
             id: data[productIndex].id
@@ -51,13 +62,16 @@ class Container {
 
     deleteById(Number) {
         const data = leerArchivo(this.archivo)
-        const found = data.find(p => p.id === Number);
+        const found = data.find(p => p.id === +(Number));
         if(found === undefined){
-            return null;
-        }else {
-            const filtro = data.filter(product => product.id !==Number);
-            escribirArchivo(this.archivo, JSON.stringify(filtro))
+            const message = `this resource does not exist in our records`;
+            throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
         }
+        const filtro = data.filter(product => product.id !== +(Number));
+        escribirArchivo(this.archivo, JSON.stringify(filtro))
+        return {
+            deletedCount: 1
+        };
     }
 
     deleteAll() {
