@@ -12,7 +12,6 @@ const dataSource = DATASOURCE_BY_ENV[envConfig.DATASOURCE]
 
 
 app.listen(PORT, () => {
-    console.log(dataSource.connect)
     dataSource.connect().then(() => {
         console.log(`Server is up and running on port: `, PORT);
         console.log("Connected to " + envConfig.DATASOURCE);

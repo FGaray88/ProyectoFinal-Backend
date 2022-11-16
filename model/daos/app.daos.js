@@ -23,8 +23,8 @@ switch(envConfig.DATASOURCE) {
         throw new Error("Invalid Datasource");   
 }
 
-console.log("ProductsDao es: "+ProductsDao);
-console.log("CartsDao es: "+CartsDao);
+/* console.log("ProductsDao es: "+ProductsDao);
+console.log("CartsDao es: "+CartsDao); */
 
 module.exports = {
     ProductsDao,

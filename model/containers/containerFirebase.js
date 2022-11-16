@@ -3,21 +3,21 @@ const admin = require("firebase-admin");
 const { getFirestore } = require("firebase-admin/firestore");
 const dbConfig = require("../../db/db.config")
 
-/* admin.initializeApp({
+admin.initializeApp({
     credential: admin.credential.cert(dbConfig.firebase.credentials)
-}); */
+});
 
 class FirebaseContainer {
     constructor(collection) {
-        /* FirebaseContainer.connect() */
+        
         const db = getFirestore();
         this.query = db.collection(collection);
     }
 
     static async connect() {
-        admin.initializeApp({
+/*         admin.initializeApp({
             credential: admin.credential.cert(dbConfig.firebase.credentials)
-        });
+        }); */
     }
 
     async getAll (){
@@ -32,7 +32,7 @@ class FirebaseContainer {
     }
 
     async getById (id){
-        const docRef = this.query.get(id);
+        const docRef = this.query.doc(id);
         if (!docRef) {
             const message = `Resource with id ${id} does not exist in our records`;
             throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
@@ -46,7 +46,7 @@ class FirebaseContainer {
         return await docRef.set(item);
     }
 
-    async update (id, item){
+    async updateById (id, item){
         const docRef = this.query.doc(id);
         if (!docRef) {
             const message = `Resource with id ${id} does not exist in our records`;
@@ -57,7 +57,10 @@ class FirebaseContainer {
 
     async deleteById (id){
         const docRef = this.query.doc(id);
-        return await docRef.delete();
+        await docRef.delete();
+        return {
+            deletedCount: 1
+        }; 
     }
 
 }

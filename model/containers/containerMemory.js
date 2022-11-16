@@ -29,7 +29,7 @@ class Container {
 
     getById(Number) {
         const data = leerArchivo(this.archivo)
-        const found = data.find(p => p.id === +(Number));
+        const found = data.find(p => p.id == Number);
         if(found === undefined){
             const message = `this resource does not exist in our records`;
             throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
@@ -40,7 +40,7 @@ class Container {
 
     updateById(number, product) {
         const data = leerArchivo(this.archivo);
-        const productIndex = data.findIndex((product) => product.id === +(number));
+        const productIndex = data.findIndex((product) => product.id == number);
         if (productIndex < 0){
             const message = `this resource does not exist in our records`;
             throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
@@ -62,12 +62,12 @@ class Container {
 
     deleteById(Number) {
         const data = leerArchivo(this.archivo)
-        const found = data.find(p => p.id === +(Number));
+        const found = data.find(p => p.id == Number);
         if(found === undefined){
             const message = `this resource does not exist in our records`;
             throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
         }
-        const filtro = data.filter(product => product.id !== +(Number));
+        const filtro = data.filter(product => product.id != Number);
         escribirArchivo(this.archivo, JSON.stringify(filtro))
         return {
             deletedCount: 1
