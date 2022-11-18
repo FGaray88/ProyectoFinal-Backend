@@ -15,7 +15,6 @@ const URI = `mongodb+srv://FG-Projects:${PASS}@fg-cluster.byfsgny.mongodb.net/${
     try {
         await mongoose.connect(URI);
         console.log("Connected to Database!");
-
         const product = {
             name: "producto nuevo",
             thumbnail: "url de imagen de nuevo producto",
@@ -25,10 +24,8 @@ const URI = `mongodb+srv://FG-Projects:${PASS}@fg-cluster.byfsgny.mongodb.net/${
             timestamp: Date.now(),
             code: "codigo de nuevo producto"
         };
-
         await new ProductsModel(product).save();
         console.log("Documento insertado");
-
         const students = await StudentModel.find().lean();
         console.table(students)
 

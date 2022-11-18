@@ -14,15 +14,13 @@ class CartsMongoDao extends MongoContainer {
     }
 
     async validate(data, id) {
-        const idProd = await data.productos.map(elem => elem._id);
-        
-        console.log("idProd: ", data);
+        const idProd = await data.productos.map(elem => elem._id.toString());
         const isInCart = idProd.includes(id);
-        console.log("isInCart: "+isInCart);
+
         if (!isInCart){
             return null
         } else {
-            const filter = data.productos.filter(product => product.id != +id);
+            const filter = data.productos.filter(product => product._id != id);
             return filter;
         }
         

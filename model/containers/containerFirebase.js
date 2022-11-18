@@ -38,7 +38,10 @@ class FirebaseContainer {
             throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
         }
         const document = await docRef.get();
-        return document.data();
+        return {
+            id: document.id,
+            ...document.data()
+        }
     }
 
     async save (item){
