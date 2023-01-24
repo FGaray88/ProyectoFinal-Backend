@@ -3,5 +3,5 @@ dotenv.config();
 
 module.exports = {
     DB_PASSWORD: process.env.DB_PASSWORD,
-    DATASOURCE: process.env.DATASOURCE,
+    HOST: process.env.HOST || "127.0.0.1"
 }

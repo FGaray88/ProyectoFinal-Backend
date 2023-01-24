@@ -1,0 +1,18 @@
+
+<div style="display: flex; flex-wrap: wrap; padding: 5px; background-color: darkslategrey">
+    <% products.forEach(item => { %>
+        <div style="display: flex; flex-direction: column; margin:16px; align-items: center;">
+            <div style="width: 50%; margin: auto;">
+                <img style="border-radius: 25px; width: 100px;" src=<%= item.thumbnail %> alt=<%= item._id %> >
+            </div>
+            <h3 style="font-family: monospace; text-align: center; font-size:large; color:whitesmoke"><%= item.name %></h3>
+            <h4 style="font-family: monospace; text-align: center; font-size:large; color:whitesmoke">$<%= item.price %></h4>
+            <form method="post" action="/cart/<%= user.cart %>/<%= item._id %>">
+                <button type="submit">
+                    Agregar al carrito
+                </button>
+            </form>
+        </div>
+
+    <% }); %>
+</div>

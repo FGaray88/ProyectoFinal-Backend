@@ -1,6 +1,10 @@
 const express = require('express');
-const errorMiddleware = require('./middleware/error.middleware');
+const errorMiddleware = require('./middlewares/error.middleware');
 const apiRoutes = require('./routers/app.routers');
+const session = require('express-session');
+const MongoStore = require('connect-mongo');
+const passport = require('./middlewares/passport.js');
+const dbConfig = require('./db/config');
 
 const app = express();
 
@@ -8,10 +12,25 @@ const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-// Routes
-app.get("/", (req, res) =>{res.json("Bienvenido");});
+app.use(session({
+    name: 'my-session',
+    secret: 'top-secret-51',
+    resave: false,
+    saveUninitialized: false,
+    rolling: true,
+    store: MongoStore.create({
+        mongoUrl: dbConfig.mongodb.connectTo("DesafioInicioSesion")
+    }),
+    cookie: {
+        maxAge: 60000
+    }
+}));
 
-app.use("/api", apiRoutes);
+app.use(passport.initialize())
+app.use(passport.session())
+
+// Routes
+app.use("/", apiRoutes);
 
 app.get("*", (req, res) => {
     res.status(404).send("<h1 style='color:red;'> La pagina que busca no existe </h1>")

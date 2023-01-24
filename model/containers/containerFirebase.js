@@ -1,7 +1,7 @@
 const { HTTP_STATUS } = require("../../constants/api.constants");
 const admin = require("firebase-admin");
 const { getFirestore } = require("firebase-admin/firestore");
-const dbConfig = require("../../db/db.config")
+const dbConfig = require("../../db/config")
 
 admin.initializeApp({
     credential: admin.credential.cert(dbConfig.firebase.credentials)

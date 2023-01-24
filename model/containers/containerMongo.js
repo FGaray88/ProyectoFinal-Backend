@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 const { HTTP_STATUS } = require("../../constants/api.constants");
-const dbConfig = require("../../db/db.config");
+const dbConfig = require("../../db/config");
 const { HttpError } = require("../../utils/api.utils");
 
 
@@ -10,7 +10,7 @@ class MongoContainer {
     }
 
     static async connect() {
-        await mongoose.connect(dbConfig.mongodb.uri);
+        await mongoose.connect(dbConfig.mongodb.connectTo("E-Commerce"));
     }
 
     static async disconnect() {

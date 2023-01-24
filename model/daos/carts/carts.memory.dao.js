@@ -16,9 +16,7 @@ class CartsMemoryDao extends MemoryContainer {
             const filter = data.productos.filter(product => product.id != id);
             return filter;
         }
-        
     }
-
 }
 
 module.exports = CartsMemoryDao;

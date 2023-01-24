@@ -1,0 +1,101 @@
+[2023-01-23T12:07:32.575] [ERROR] errorsFile - Invalid user or password
+[2023-01-23T14:17:01.254] [ERROR] errorsFile - Invalid user or password
+[2023-01-23T15:05:00.097] [ERROR] errorsFile - HttpError {
+  statusCode: 404,
+  message: 'Resource with id undefined does not exist in our records',
+  details: undefined
+}
+[2023-01-23T15:06:57.472] [ERROR] errorsFile - TypeError: Cannot read properties of undefined (reading 'cart')
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\routers\cart\cart.router.js:15:33
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:47:12)
+[2023-01-23T15:08:22.424] [ERROR] errorsFile - TypeError: Cannot read properties of undefined (reading 'cart')
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\routers\cart\cart.router.js:15:33
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:47:12)
+[2023-01-23T15:09:23.739] [ERROR] errorsFile - TypeError: Cannot read properties of undefined (reading 'cart')
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\routers\cart\cart.router.js:15:33
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:47:12)
+[2023-01-23T15:09:46.432] [ERROR] errorsFile - TypeError: Cannot read properties of undefined (reading 'cart')
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\routers\cart\cart.router.js:15:33
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:47:12)
+[2023-01-23T15:10:25.434] [ERROR] errorsFile - HttpError {
+  statusCode: 404,
+  message: 'Resource with id undefined does not exist in our records',
+  details: undefined
+}
+[2023-01-23T15:12:15.142] [ERROR] errorsFile - HttpError {
+  statusCode: 404,
+  message: 'Resource with id undefined does not exist in our records',
+  details: undefined
+}
+[2023-01-23T15:17:28.989] [ERROR] errorsFile - HttpError {
+  statusCode: 404,
+  message: 'Resource with id undefined does not exist in our records',
+  details: undefined
+}
+[2023-01-23T15:21:52.339] [ERROR] errorsFile - HttpError {
+  statusCode: 404,
+  message: 'Resource with id undefined does not exist in our records',
+  details: undefined
+}
+[2023-01-24T11:25:21.115] [ERROR] errorsFile - HttpError {
+  statusCode: 404,
+  message: 'Resource with id undefined does not exist in our records',
+  details: undefined
+}
+[2023-01-24T12:11:15.202] [ERROR] errorsFile - ReferenceError: user is not defined
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\routers\app.routers.js:56:57
+    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+[2023-01-24T12:27:05.115] [ERROR] errorsFile - TypeError: Cannot read properties of undefined (reading 'cart')
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\routers\app.routers.js:56:26
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:280:10)
+    at Function.handle (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:175:3)
+    at router (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:47:12)
+[2023-01-24T12:35:35.059] [ERROR] errorsFile - TypeError: Cannot read properties of undefined (reading 'cart')
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\routers\app.routers.js:43:33
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:144:13)
+    at Route.dispatch (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\route.js:114:3)
+    at Layer.handle [as handle_request] (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\layer.js:95:5)
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:284:15
+    at Function.process_params (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:346:12)
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:280:10)
+    at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:646:15
+    at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:265:14)

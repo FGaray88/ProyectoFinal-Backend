@@ -54,8 +54,7 @@ class CartController {
     }
 
     async addProductAtCart (req, res, next){
-        const { id } = req.params;
-        const { productID } = req.body;
+        const { id, productID } = req.params;
         try {
             const dataProduct = await products.getById(productID);
             const dataCart = await cart.getById(id);
@@ -88,4 +87,4 @@ class CartController {
 
 
 
-module.exports = CartController;
+module.exports = new CartController();
