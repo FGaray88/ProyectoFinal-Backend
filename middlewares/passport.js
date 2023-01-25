@@ -6,7 +6,8 @@ const {
   consoleLogger,
   errorLogger,
 } = require("../logger/logger")
-
+const { sendMailNewUser } = require('../nodemailer/gmail');
+const { sendMail } = require("../nodemailer/ethereal")
 const UsersDao = require('../model/daos/Users.dao');
 const CartsDao = require("../model/daos/carts/carts.mongo.dao")
 const { formatUserForDB } = require('../utils/users.utils');
@@ -24,22 +25,27 @@ const isValidPassword = (user, password) => bcrypt.compareSync(password, user.pa
 
 // sign up
 passport.use('signup', new LocalStrategy(
-  async (username, password, done) => {
+  { passReqToCallback: true, },
+  async (req, username, password, done) => {
   try {
+    const { username, password, phone } = req.body;
     const cart = await Cart.save({ items: [] });
     const userItem = {
       username: username,
       password: createHash(password),
-      cart
+      cart,
+      phone,
     };
     const newUser = formatUserForDB(userItem);
     const user = await User.createUser(newUser);
     consoleLogger.info("User registration successfull");
+    await sendMail(user.username)
+    await sendMailNewUser(user.username)
     return done(null, user);
   }
   catch(error) {
     errorLogger.error("Error signuping user up...");
-    errorLogger.error(err);
+    errorLogger.error(error);
     return done(error);
   }
 }));

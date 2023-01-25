@@ -5,6 +5,7 @@ const formatUserForDB = (userObj) => {
     createdAt: new Date(),
     updatedAt: new Date(),
     cart: userObj.cart,
+    phone: userObj.phone
   };
   return newUser;
 };

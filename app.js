@@ -19,10 +19,10 @@ app.use(session({
     saveUninitialized: false,
     rolling: true,
     store: MongoStore.create({
-        mongoUrl: dbConfig.mongodb.connectTo("DesafioInicioSesion")
+        mongoUrl: dbConfig.mongodb.connectTo("Sessions")
     }),
     cookie: {
-        maxAge: 60000
+        maxAge: 3600000
     }
 }));
 

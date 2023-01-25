@@ -8,6 +8,7 @@ const UserSchema = new Schema({
   createdAt: { type: Date, required: true },
   updatedAt: { type: Date, required: true },
   cart: { type: Schema.Types.ObjectId, ref: 'carts' },
+  phone: { type: Number },
 });
 UserSchema.index({ username: 1 });
 

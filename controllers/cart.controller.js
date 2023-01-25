@@ -60,7 +60,8 @@ class CartController {
             const dataCart = await cart.getById(id);
             dataCart.productos.push(dataProduct);
             await cart.updateById(id, dataCart);
-            return res.status(HTTP_STATUS.OK).json(successResponse(dataCart));
+            /* return res.status(HTTP_STATUS.OK).json(successResponse(dataCart)); */
+            res.redirect("/cart");
         }
         catch(error){
             next(error);
@@ -77,7 +78,8 @@ class CartController {
             }
             dataCart.productos = validated;
             await cart.updateById(id, dataCart);
-            return res.status(HTTP_STATUS.OK).json({ success: true, result: "Producto eliminado del carrito"});
+            /* return res.status(HTTP_STATUS.OK).json({ success: true, result: "Producto eliminado del carrito"}); */
+            res.redirect("/cart")
         }
         catch(error){
             next(error);
