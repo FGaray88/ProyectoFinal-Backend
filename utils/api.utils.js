@@ -9,7 +9,7 @@ const errorResponse = (message, details = null) => {
   return {
     success: false,
     message,
-    details
+    details,
   }
 }
 

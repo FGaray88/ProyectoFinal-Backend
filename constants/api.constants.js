@@ -7,5 +7,5 @@ const HTTP_STATUS = {
 };
 
 module.exports = {
-  HTTP_STATUS
+  HTTP_STATUS,
 };
