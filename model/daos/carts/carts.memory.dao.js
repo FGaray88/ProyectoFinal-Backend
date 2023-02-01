@@ -1,10 +1,10 @@
 const MemoryContainer = require("../../containers/containerMemory");
 
-const archivo = "./db/data/cart.json"
+const data = []
 
 class CartsMemoryDao extends MemoryContainer {
     constructor() {
-        super(archivo);
+        super(data);
     }
 
     async validate(data, id) {

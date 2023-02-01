@@ -39,7 +39,7 @@ if (clusterMode && cluster.isPrimary) {
     cluster.fork()
 } else {
     app.listen(PORT, () => {
-        logger.trace(`Servidor escuchando en http://${envConfig.HOST}:${PORT}`)
+        logger.trace(`Servidor conectado en ${envConfig.DATASOURCE} y escuchando en http://${envConfig.HOST}:${PORT}`)
     });
 }
 

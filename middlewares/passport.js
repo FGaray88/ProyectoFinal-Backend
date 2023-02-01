@@ -8,7 +8,7 @@ const {
 } = require("../logger/logger")
 const { sendMailNewUser } = require('../nodemailer/gmail');
 const { sendMail } = require("../nodemailer/ethereal")
-const UsersDao = require('../model/daos/Users.dao');
+const UsersDao = require('../model/daos/users/Users.dao');
 const CartsDao = require("../model/daos/carts/carts.mongo.dao")
 const { formatUserForDB } = require('../utils/users.utils');
 

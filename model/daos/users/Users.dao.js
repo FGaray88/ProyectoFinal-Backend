@@ -1,7 +1,7 @@
-const MongoDBContainer = require('../containers/containerMongo');
-const { HttpError } = require('../../utils/api.utils');
-const UserSchema = require('../schemas/User.schema');
-const constants = require('../../constants/api.constants');
+const MongoDBContainer = require('../../containers/containerMongo');
+const { HttpError } = require('../../../utils/api.utils');
+const UserSchema = require('../../schemas/User.schema');
+const constants = require('../../../constants/api.constants');
 
 
 const collection = 'users';

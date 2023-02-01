@@ -1,97 +1,64 @@
-const fs = require("fs")
-const { HTTP_STATUS } = require("../../constants/api.constants");
-const { HttpError } = require("../../utils/api.utils");
+const { v4: uuid } = require('uuid');
+const HTTP_STATUS = require('../../constants/api.constants');
+const { HttpError } = require('../../utils/api.utils');
 
-class Container {
-    constructor(archivo) {
-        this.archivo = archivo
+class MemoryContainer {
+    constructor(data, resource) {
+        this.resource = resource;
+        this.data = data;
     }
-    
+
     static async connect() {
         return {
             success: true,
         }
     }
 
-    save(object) {
-            let objAddId;
-            const data = leerArchivo(this.archivo);
-            const mapeo = data.map((product) => product.id);
-            const mayorId = Math.max(...mapeo);
-            const nuevoID = mayorId+1;
-            nuevoID === -Infinity ? objAddId = 1 : objAddId = nuevoID;
-            const objAddedId = {...object, id:objAddId};
-            data.push(objAddedId);
-            escribirArchivo(this.archivo, JSON.stringify(data))
-            return objAddId;
-        }
-
-
-    getById(Number) {
-        const data = leerArchivo(this.archivo)
-        const found = data.find(p => p.id == Number);
-        if(found === undefined){
-            const message = `this resource does not exist in our records`;
-            throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
-        }else {
-            return found;
-        }
-    }
-
-    updateById(number, product) {
-        const data = leerArchivo(this.archivo);
-        const productIndex = data.findIndex((product) => product.id == number);
-        if (productIndex < 0){
-            const message = `this resource does not exist in our records`;
-            throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
-        }
-        const updatedProduct = {
-            ...product,
-            id: data[productIndex].id
-        };
-        data[productIndex] = updatedProduct;
-        escribirArchivo(this.archivo, JSON.stringify(data))
-
-        
-    }
-
     getAll() {
-        const data = leerArchivo(this.archivo);
-        return data;
+        return this.data;
     }
 
-    deleteById(Number) {
-        const data = leerArchivo(this.archivo)
-        const found = data.find(p => p.id == Number);
-        if(found === undefined){
-            const message = `this resource does not exist in our records`;
+    getById(id) {
+        const item = this.data.find((item) => item.id === id);
+        if (!item) {
+            const message = `${this.resource} with id ${id} does not exist in our records.`;
             throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
         }
-        const filtro = data.filter(product => product.id != Number);
-        escribirArchivo(this.archivo, JSON.stringify(filtro))
-        return {
-            deletedCount: 1
+        return item;
+    }
+
+    save(item) {
+        const newItem = {
+            id: uuid(),
+            ...item,
         };
+        this.data.push(newItem);
+        return newItem;
     }
 
-    deleteAll() {
-        const nuevoArray = []
-        escribirArchivo(this.archivo, nuevoArray)
+    updateById(id, item) {
+        const index = this.data.findIndex((item) => item.id === id);
+        if (index < 0) {
+            const message = `${this.resource} with id ${id} does not exist in our records.`;
+            throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
+        }
+        const updatedItem = {
+            id,
+            ...item,
+        };
+        this.data[index] = updatedItem;
+        return updatedItem;
+    }
+
+    deleteById(id) {
+        const index = this.data.findIndex((item) => item.id == id);
+        if (index < 0) {
+            const message = `${this.resource} with id ${id} does not exist in our records.`;
+            throw new HttpError(HTTP_STATUS.NOT_FOUND, message);
+        }
+        return this.data.splice(index, 1);
     }
 }
 
+module.exports = MemoryContainer;
 
-
-leerArchivo = (archivo) => {
-    const data = fs.readFileSync(archivo,"utf-8");
-    const dataParse = JSON.parse(data);
-    return dataParse;
-}
-
-escribirArchivo = (archivo, data) => {
-        fs.writeFileSync(archivo, data)
-}
-
-
-
-module.exports = Container

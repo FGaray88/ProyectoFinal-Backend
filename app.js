@@ -5,6 +5,7 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo');
 const passport = require('./middlewares/passport.js');
 const dbConfig = require('./db/config');
+const SingletonClass = require("./model/singleton/singleton")
 
 const app = express();
 
@@ -31,6 +32,13 @@ app.use(passport.session())
 
 // Routes
 app.use("/", apiRoutes);
+
+app.get("/datos", async (req, res) => {
+    const singleton = SingletonClass.getInstance();
+    const data = singleton.getValue();
+
+    res.status(200).json({ data });
+});
 
 app.get("*", (req, res) => {
     res.status(404).send("<h1 style='color:red;'> La pagina que busca no existe </h1>")
