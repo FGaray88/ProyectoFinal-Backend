@@ -6,8 +6,31 @@ const MongoStore = require('connect-mongo');
 const passport = require('./middlewares/passport.js');
 const dbConfig = require('./db/config');
 const SingletonClass = require("./model/singleton/singleton")
+const { graphqlHTTP } = require('express-graphql');
+const { schema,
+    getPersonas,
+    getPersonaById,
+    createPersona,
+    updatePersona,
+    deletePersona
+} = require("./graphql/graphql")
+
 
 const app = express();
+
+// GraphQl definition
+
+app.use('/graphql', graphqlHTTP({
+    schema,
+    rootValue: {
+        getPersonas,
+        getPersonaById,
+        createPersona,
+        updatePersona,
+        deletePersona
+    },
+    graphiql: true
+}));
 
 // Middlewares
 app.use(express.json());
