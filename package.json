@@ -5,6 +5,7 @@
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
+    "dev": "npx nodemon server.js",
     "start-forever": "forever start server.js",
     "test": "node benchmark.js"
   },
@@ -29,6 +30,7 @@
     "nodemailer": "^6.9.0",
     "passport": "^0.6.0",
     "passport-local": "^1.0.0",
+    "socket.io": "^4.6.1",
     "twilio": "^3.84.1",
     "uuid": "^9.0.0"
   }

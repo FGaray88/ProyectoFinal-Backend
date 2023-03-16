@@ -24,7 +24,7 @@ const sendWspMessage = async (phone) => {
         const messageResponse = await twilioClient.messages.create({
             body: "Su pedido ha sido recibido y se encuentra en proceso",
             from: TWILIO_WHATSAPP,
-            to: `whatsapp:${ADMIN_PHONE}`
+            to: `whatsapp:+${ADMIN_PHONE}`
         });
         consoleLogger.info(messageResponse);
     }

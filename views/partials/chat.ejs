@@ -1,0 +1,20 @@
+<div class="container chat-container">
+    <div class="card mb-3 divCardChat">
+        <div class="row divCardChat2">
+            <div class="divCardChat3">
+                <div class="row p-3 chat-input">
+                    <form id="chat-form" class="p-3 chatForm">
+                        <strong>Bienvenido al chat</strong>
+                        <input type="hidden" name="nombre" value="<%= sessionUser.username %>" id="user-input" class="input-file" readonly>
+                        <h5>Escriba aquí su consulta</h5>
+                        <textarea name="textInput" id="text-input" required></textarea>
+                        <input type="submit" value="Enviar">
+                    </form>
+                </div>
+                <div class="row p-3 chatBody">
+                    <div id="divChat"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

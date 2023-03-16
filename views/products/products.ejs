@@ -8,7 +8,7 @@
     <script src="/socket.io/socket.io.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/estilos.css">
+    <link rel="stylesheet" href="/css/styles.css">
     <script src="https://cdn.jsdelivr.net/npm/normalizr@3.6.1/dist/normalizr.browser.min.js"></script>
 </head>
 
@@ -16,21 +16,20 @@
     
 <%- include("../partials/nav.ejs") %> 
 
-<div style="display: flex; flex-wrap: wrap; padding: 5px; background-color: darkslategrey">
+<div class="divProducts">
     <% products.forEach(item => { %>
-        <div style="display: flex; flex-direction: column; margin:16px; align-items: center;">
-            <div style="width: 50%; margin: auto;">
-                <img style="border-radius: 25px; width: 100px;" src=<%= item.thumbnail %> alt=<%= item._id %> >
+        <div class="divProducts2">
+            <div class="divImgProducts">
+                <img src=<%= item.thumbnail %> alt=<%= item._id %> >
             </div>
-            <h3 style="font-family: monospace; text-align: center; font-size:large; color:whitesmoke"><%= item.name %></h3>
-            <h4 style="font-family: monospace; text-align: center; font-size:large; color:whitesmoke">$<%= item.price %></h4>
+            <h3><%= item.name %></h3>
+            <h4>$<%= item.price %></h4>
             <form method="post" action="/cart/<%= user.cart %>/<%= item._id %>">
                 <button type="submit">
                     Agregar al carrito
                 </button>
             </form>
         </div>
-
     <% }); %>
 </div>
 </body>

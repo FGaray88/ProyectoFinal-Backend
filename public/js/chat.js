@@ -10,11 +10,6 @@ const socket = io();
 
 // chat
 
-const welcomeTitle = (name) => {
-    const html = `<strong>Bienvenido ${name}</strong>`
-    document.getElementById('welcome-title').innerHTML = html;
-};
-
 const renderMessage = (socketId, data) => {
     const div = document.createElement('div');
     let className;
@@ -25,13 +20,13 @@ const renderMessage = (socketId, data) => {
             : 'other-messages-container';
         if (className === 'my-messages-container') {
             html = `<div class="my-messages">
-            <span><b>Yo</b> ${data.time}</span><br />
+            <span><b>Yo</b> ${data.created_at}</span><br />
             <span>${data.text}</span>
         </div>`;
         }
         else {
             html = `<div class="other-messages">
-            <span><b>${data.username}</b> ${data.time}</span><br />
+            <span><b>${data.username}</b> ${data.created_at}</span><br />
             <span>${data.text}</span>
         </div>`
         }
@@ -50,7 +45,7 @@ const renderMessages = (data) => {
         let fragment = `
         <div class="other-messages-container">
             <div class="other-messages">
-                <span><b>${elem.username}</b> ${elem.time}</span><br />
+                <span><b>${elem.username}</b> ${elem.created_at}</span><br />
                 <span>${elem.text}</span>
             </div>
         </div>`;
@@ -63,12 +58,10 @@ const renderMessages = (data) => {
 chatForm.addEventListener("submit", (event) => {
     event.preventDefault();
     const textInput = document.getElementById("text-input");
-    const user = req.user;
-    console.log(user)
-    /* const user = document.getElementById("user-input"); */
+    const user = document.getElementById("user-input");
     const msg = {
         text: textInput.value,
-        user: user
+        user: user.value
     }
     socket.emit("new-message", msg);
     textInput.value = "";
@@ -82,7 +75,6 @@ socket.on("messages", (data) => {
     renderMessages(data);
 });
 // hasta aqui chat
-
 
 
 

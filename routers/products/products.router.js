@@ -12,10 +12,3 @@ router.put("/:id", products.updateProductById);
 router.delete("/:id", products.deleteProductById);
 
 module.exports = router;
-
-
-// firebase Ok
-// mongo Ok
-// memory
-// files ok
-

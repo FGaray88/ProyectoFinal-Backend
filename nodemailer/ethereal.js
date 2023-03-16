@@ -1,6 +1,6 @@
 const nodemailer = require("nodemailer");
-const TEST_MAIL = "sigmund.swift82@ethereal.email"
-const PASSWORD = "We5E6Qg9WPDNAaXGU9"
+const TEST_MAIL = "ivah.windler@ethereal.email"
+const PASSWORD = "EEZ7ezzDx3TG9S8EPC"
 const { consoleLogger } = require("../logger/logger")
 
 const transporter = nodemailer.createTransport({

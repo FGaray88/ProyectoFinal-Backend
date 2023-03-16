@@ -22,6 +22,38 @@ const PORT = args.port;
 const clusterMode = process.argv[4] == "CLUSTER";
 
 
+const { Server: SocketServer } = require("socket.io");
+const { Server: HttpServer } = require("http");
+const { formatMessage } = require("./utils/utils")
+const Messages = require("./db/chat/messages");
+const messages = new Messages("./db/chat/messages.json");
+const httpServer = new HttpServer(app);
+const io = new SocketServer(httpServer);
+const users = [];
+
+
+
+
+io.on("connection", (socket) => {
+    console.log("Nuevo usuario conectado");
+    const mensajes = messages.getAll()
+    socket.emit("messages", mensajes);
+    socket.on("new-message", (data) => {
+        const newUser = {
+            id: socket.id,
+            username: data.user
+        }
+        users.push(newUser)
+        const author = users.find(user => user.id === socket.id);
+        const newMessage = formatMessage(socket.id, author.username, data.text);
+        const addMessage = messages.save(newMessage)
+        io.emit("chat-message", newMessage);
+    });
+});
+
+
+
+
 
 if (!clusterMode){
     consoleLogger.info("Modo Fork");
@@ -38,7 +70,7 @@ if (clusterMode && cluster.isPrimary) {
     })
     cluster.fork()
 } else {
-    app.listen(PORT, () => {
+    httpServer.listen(PORT, () => {
         logger.trace(`Servidor conectado en ${envConfig.DATASOURCE} y escuchando en http://${envConfig.HOST}:${PORT}`)
     });
 }

@@ -114,3 +114,39 @@
     at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:280:10)
     at C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:646:15
     at next (C:\Users\Fabián Garay\Desktop\Coderhouse\BackEnd\ProyectoFinal\node_modules\express\lib\router\index.js:265:14)
+[2023-03-15T14:42:23.079] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T14:42:55.720] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T14:45:03.193] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T14:45:17.712] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T14:51:32.699] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T14:52:31.680] [ERROR] errorsFile - Error signing in...
+[2023-03-15T14:53:44.647] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T16:18:35.005] [ERROR] errorsFile - Error signing in...
+[2023-03-15T16:23:26.832] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T17:32:20.884] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T17:34:09.439] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T17:37:34.950] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T17:39:03.858] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T17:45:03.967] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T18:30:41.263] [ERROR] errorsFile - Invalid user or password
+[2023-03-15T18:34:53.668] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T16:58:54.180] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:14:53.287] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:15:02.031] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:15:31.662] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:15:37.352] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:16:04.666] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:28:26.632] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:28:40.505] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:28:47.809] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:28:52.683] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:29:19.910] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:57:10.836] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T17:59:30.607] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T18:01:25.130] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T18:04:24.210] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T18:07:53.601] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T18:08:41.041] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T18:09:32.883] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T18:11:07.362] [ERROR] errorsFile - Invalid user or password
+[2023-03-16T18:12:25.651] [ERROR] errorsFile - Invalid user or password

@@ -32,16 +32,28 @@ router.use("/products", productsRoutes)
 router.use("/api", apiRoutes);
 router.use("/cart", cartRoutes);
 
+
+
 router.get('/', async (req, res) => {
-    consoleLogger.info("peticion a /, metodo get")
     const user = req.user;
-    if (user) {
-        return res.redirect("/profile")
+    try {
+        if (user) {
+            return res.redirect("/profile")
+        }
+        else {
+            return res.sendFile(path.resolve(__dirname, '../public/login.html'));
+        }
     }
-    else {
-        return res.sendFile(path.resolve(__dirname, '../public/login.html'));
+    catch(error) {
+        errorLogger.error(error);
     }
 });
+
+router.get('/login', async (req, res) => {
+    return res.sendFile(path.resolve(__dirname, '../public/login.html'));
+});
+
+
 
 router.get('/cart', async (req, res) => {
     try {
@@ -49,7 +61,6 @@ router.get('/cart', async (req, res) => {
         const cart = await Cart.getById(cartId)
         const user = req.user;
         res.render('cart.ejs', { cart, user, sessionUser: user });
-        /* res.redirect(`/cart/${cartId}/productos`) */
     }
     catch(error) {
         errorLogger.error(error);
@@ -68,21 +79,27 @@ router.get('/productos', async (req, res) => {
 });
 
 router.get('/profile', auth, async (req, res) => {
-    consoleLogger.info("peticion a /profile, metodo get")
     const user = req.user;
-    if (!user) { res.redirect('/'); }
-    res.render('home.ejs', { sessionUser: user });
+    try {
+        if (!user) { res.redirect('/'); }
+        res.render('home.ejs', { sessionUser: user });
+    }
+    catch(error) {
+        errorLogger.error(error);
+    }
 });
 
 router.get('/register', async (req, res) => {
-    consoleLogger.info("peticion a /register, metodo get")
-    res.sendFile(path.resolve(__dirname, '../public/register.html'));
+    try {
+        res.sendFile(path.resolve(__dirname, '../public/register.html'));
+    }
+    catch(error) {
+        errorLogger.error(error);
+    }
 });
 
 router.get('/logout', async (req, res) => {
-    consoleLogger.info("peticion a /logout, metodo get")
     consoleLogger.info("User logued out");
-
     const user = req.user;
     try {
         req.session.destroy(err => {
@@ -99,7 +116,6 @@ router.get('/logout', async (req, res) => {
     catch (err) {
         errorLogger.error(err);
     }
-    
 });
 
 router.post('/checkout', async (req, res) => {
@@ -108,13 +124,10 @@ router.post('/checkout', async (req, res) => {
     
     try {
         const cart = await Cart.getById(cartId)
-        /* await sendMailNewSelling(user, cart)
-        await sendMailVenta(user, cart) */
+        await sendMailNewSelling(user, cart)
+        await sendMailVenta(user, cart)
         await sendSMS(user.phone)
         await sendWspMessage(user.phone)
-
-        
-        /*await sendCheckoutWhatsapp(email, ADMIN_PHONE);*/
         res.render('checkout.ejs');
     } catch (error) {
         errorLogger.error(error);
@@ -122,11 +135,21 @@ router.post('/checkout', async (req, res) => {
 });
 
 router.get('/signin-error', async (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../public/signin-error.html'));
+    try {
+        res.sendFile(path.resolve(__dirname, '../public/signin-error.html'));
+    }
+    catch (error) {
+        errorLogger.error(error);
+    }
 });
 
 router.get('/signup-error', async (req, res) => {
-    res.sendFile(path.resolve(__dirname, '../public/signup-error.html'));
+    try {
+        res.sendFile(path.resolve(__dirname, '../public/signup-error.html'));
+    }
+    catch (error) {
+        errorLogger.error(error);
+    }
 });
 
 

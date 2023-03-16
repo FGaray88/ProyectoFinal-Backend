@@ -29,6 +29,7 @@ passport.use('signup', new LocalStrategy(
   async (req, username, password, done) => {
   try {
     const { username, password, phone } = req.body;
+    console.log(password)
     const cart = await Cart.save({ items: [] });
     const userItem = {
       username: username,
@@ -36,8 +37,12 @@ passport.use('signup', new LocalStrategy(
       cart,
       phone,
     };
+
+    console.log("userItem", userItem)
     const newUser = formatUserForDB(userItem);
+    console.log("newUser", newUser)
     const user = await User.createUser(newUser);
+    console.log("user", user);
     consoleLogger.info("User registration successfull");
     await sendMail(user.username)
     await sendMailNewUser(user.username)
@@ -54,6 +59,12 @@ passport.use('signup', new LocalStrategy(
 passport.use('signin', new LocalStrategy( async (username, password, done) => {
   try {
     const user = await User.getByEmail(username);
+    console.log(username)
+    console.log(user)
+
+    const encrypt = console.log(createHash(password))
+    console.log(isValidPassword(user, password))
+    
     if (!isValidPassword(user, password)) {
       errorLogger.error("Invalid user or password");
       return done(null, false);

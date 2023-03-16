@@ -1,0 +1,65 @@
+
+
+.divDatos {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 50px;
+  background-color: bisque;
+}
+
+.divCardChat {
+  max-width: 1280px;
+  margin: 50px auto;
+  height: 610px;
+  min-height: 600px;
+}
+
+.divCardChat2 {
+  background-color: bisque;
+}
+
+.divCardChat3 {
+  margin: auto;
+}
+
+.chatForm {
+  background-color: rgb(198, 240, 215);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 200px;
+}
+
+.input-file {
+  margin-bottom: 16px;
+}
+
+.chatBody {
+  background-color: rgb(198, 240, 215);
+}
+
+.divProducts {
+  display: flex; flex-wrap: wrap; padding: 5px; background-color: darkslategrey
+}
+
+.divProducts2 {
+  display: flex; flex-direction: column; margin:16px; align-items: center;
+}
+
+.divImgProducts {
+  width: 50%; margin: auto;
+}
+
+.divImgProducts img {
+  border-radius: 25px; width: 100px;
+}
+
+.divProducts2 h3 {
+  font-family: monospace; text-align: center; font-size:large; color:whitesmoke
+}
+
+.divProducts2 h4 {
+  font-family: monospace; text-align: center; font-size:large; color:whitesmoke
+}
