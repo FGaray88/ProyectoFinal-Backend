@@ -17,7 +17,7 @@ const args = minimist(process.argv.slice(2), {
     }    
 });
 /* const PORT = args.port; */
-const PORT = 8080;
+const PORT = process.env.PORT || args.port;
 
 const clusterMode = process.argv[4] == "CLUSTER";
 
