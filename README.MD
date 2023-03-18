@@ -1,11 +1,13 @@
 E-COMMERCE BACK END - FABIAN GARAY
 
-Detalles a corregir:
+Ejecucion:
 
-- En la vista del cart si este se encuentra vacio deberia aparecer un texto indicando esta situacion y no se deberia permitir finalizar la compra
-- Agregar los siguientes datos en la vista de registro: Nombre, apellido, direccion, foto o avatar y edad .
-- Agregar queries para poder aplicar filtros en lista de productos
+modo fork
+npm start // npm run dev
 
-Ultimas actualizaciones
+modo cluster
+npm start p= <PORT> CLUSTER
+npm run dev p= <PORT> CLUSTER
 
-se refactorizó con los conceptos DAO, DTO, FACTORY, REPOSITORY y SINGLETON
+
+
