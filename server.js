@@ -66,7 +66,7 @@ if (clusterMode && cluster.isPrimary) {
         cluster.fork();
     }
     cluster.on("exit", worker => {
-        consoleLogger("Worker", worker.process.pid, "died", new Date().toLocaleDateString())
+        consoleLogger.info("Worker", worker.process.pid, "died", new Date().toLocaleDateString())
     })
     cluster.fork()
 } else {

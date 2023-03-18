@@ -42,9 +42,9 @@ class UsersDao extends MongoDBContainer {
     }
   }
 
-  async getByEmail(email) {
+  async getByEmail(username) {
     try {
-      const document = await this.model.findOne({ email }, { __v: 0 });
+      const document = await this.model.findOne({ username }, { __v: 0 });
       if (!document) {
         const errorMessage = `Wrong username or password`;
         throw new HttpError(constants.HTTP_STATUS.NOT_FOUND, errorMessage);

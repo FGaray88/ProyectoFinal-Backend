@@ -13,7 +13,7 @@ const app = express();
 // Middlewares
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
-app.use("/" ,express.static("./public")); // estrictamente necesario para websocket
+app.use("/" ,express.static("./public")); 
 
 
 app.use(session({
@@ -35,6 +35,7 @@ app.use(passport.session())
 
 // Routes
 app.use("/", apiRoutes);
+
 
 
 app.get("*", (req, res) => {
